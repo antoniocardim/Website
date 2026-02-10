@@ -1,5 +1,5 @@
 {
-  "name": "next-js-tlmoto-website",
+  "name": "tlmoto-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,33 +7,57 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && type nul > out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "preview": "npx serve@latest out -l 3000",
+    "export:relative": "npm run build && node scripts/make-relative-asset-paths.mjs",
+    "deploy": "next build && type nul > out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages",
+    "test": "jest"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@next/bundle-analyzer": "^15.2.1",
-    "framer-motion": "^12.4.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
     "gsap": "^3.12.5",
+    "lucide-react": "^0.536.0",
+    "motion": "^12.23.12",
     "next": "^15.3.1",
     "next-js-tlmoto-website": "file:",
     "react": "^19.1.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.1.0",
     "react-icons": "^4.12.0",
+    "react-router-dom": "^7.7.0",
     "recharts": "^2.15.1",
-    "swiper": "^11.2.2"
+    "swiper": "^11.2.2",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.5.4",
     "@next/eslint-plugin-next": "^15.3.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "24.0.13",
+    "@types/react": "19.1.8",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.25.0",
     "eslint-config-next": "^15.3.1",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.2.6",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "postcss": "^8.5.6",
     "prettier": "^3.5.3",
     "prettier-plugin-css-order": "^2.1.2",
-    "sass": "^1.85.1",
-    "stylelint": "^16.18.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-scss": "^6.11.1"
+    "tailwindcss": "^4.1.11",
+    "ts-node": "^10.9.2",
+    "tw-animate-css": "^1.3.6"
   }
 }
